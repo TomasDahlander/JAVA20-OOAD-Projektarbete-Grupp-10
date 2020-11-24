@@ -5,6 +5,7 @@ import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Tomas Dahlander <br>
@@ -18,6 +19,7 @@ public class Window extends JFrame {
     JPanel eastPanel = new JPanel(new BorderLayout());
     JLabel tableLabel = new JLabel(" Omgång      Poäng ");
     JPanel buttonPanel = new JPanel(new GridLayout(1,3));
+    JPanel dicePanel = new JPanel(new GridLayout(3,3));
     JLabel name = new JLabel("Namn: Orvar Karlsson");
 
     // Knappar
@@ -32,13 +34,24 @@ public class Window extends JFrame {
     List<JLabel> scoreLabels = new ArrayList<>();
     List<JLabel> roundLabels = new ArrayList<>();
 
-    JToggleButton[] dices; // Ej instansierad
+
+    JToggleButton[] dices = new JToggleButton[5];
 
 
     public Window(){
         setUpJFrame();
         setUpPanels();
         setUpScoreBoard();
+        setUpDices();
+    }
+
+    public void setUpJFrame(){
+        this.setLayout(new BorderLayout());
+        this.setSize(new Dimension(500, 480));
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        this.setVisible(true);
     }
 
     public void setUpPanels(){
@@ -52,9 +65,11 @@ public class Window extends JFrame {
         buttonPanel.add(roll);
         buttonPanel.add(save);
         buttonPanel.add(show);
-        buttonPanel.setPreferredSize(new Dimension(390,40));
+        buttonPanel.setPreferredSize(new Dimension(500,40));
         this.add(buttonPanel,BorderLayout.SOUTH);
         this.add(name, BorderLayout.NORTH);
+        dicePanel.setBackground(Color.WHITE);
+        this.add(dicePanel);
     }
 
     public void setUpScoreBoard(){
@@ -78,13 +93,24 @@ public class Window extends JFrame {
 
     }
 
-    public void setUpJFrame(){
-        this.setLayout(new BorderLayout());
-        this.setSize(new Dimension(400, 480));
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setVisible(true);
+    public void setUpDices(){
+        int count = 0;
+
+        for(int i = 0; i < 9; i++){
+            if(i%2 == 0){
+                Random rand = new Random();
+                int roll = rand.nextInt(6)+1;
+                dices[count] = new JToggleButton(""+roll);
+                dices[count].setOpaque(true);
+                dices[count].setBackground(Color.PINK);
+                dices[count].setBorder(BorderFactory.createLineBorder(Color.WHITE,15));
+                dicePanel.add(dices[count]);
+                count++;
+            }
+            else{
+                dicePanel.add(new JLabel());
+            }
+        }
     }
 
     public static void main(String[] args) {
