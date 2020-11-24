@@ -5,4 +5,6 @@
  * Project: JAVA20-OOAD-Projektarbete-Grupp-10 <br>
  */
 public class Yatzy {
+
+    //hihi
 }
