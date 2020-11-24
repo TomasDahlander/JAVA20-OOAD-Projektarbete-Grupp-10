@@ -3,6 +3,8 @@ package Window;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,15 +36,14 @@ public class Window extends JFrame {
     List<JLabel> scoreLabels = new ArrayList<>();
     List<JLabel> roundLabels = new ArrayList<>();
 
-
     JToggleButton[] dices = new JToggleButton[5];
-
 
     public Window(){
         setUpJFrame();
         setUpPanels();
         setUpScoreBoard();
         setUpDices();
+        setUpListeners(); // added here for test purposes
     }
 
     public void setUpJFrame(){
@@ -90,7 +91,6 @@ public class Window extends JFrame {
             scoreLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
             scoreBoardScores.add(scoreLabels.get(i));
         }
-
     }
 
     public void setUpDices(){
@@ -111,6 +111,20 @@ public class Window extends JFrame {
                 dicePanel.add(new JLabel());
             }
         }
+    }
+
+    public void setUpListeners(){
+        ActionListener rolling = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Random rand = new Random();
+                for (var dice : dices) {
+                    int x = rand.nextInt(6) + 1;
+                    dice.setText(String.valueOf(x));
+                }
+            }
+        };
+        roll.addActionListener(rolling);
     }
 
     public static void main(String[] args) {
