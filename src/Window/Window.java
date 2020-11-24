@@ -126,7 +126,7 @@ public class Window extends JFrame {
         };
         roll.addActionListener(rolling);
     }
-
+    
     public static void main(String[] args) {
         new Window();
     }
