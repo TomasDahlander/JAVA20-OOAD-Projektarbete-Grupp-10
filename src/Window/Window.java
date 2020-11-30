@@ -25,7 +25,7 @@ public class Window extends JFrame {
     JLabel name = new JLabel("Namn: Orvar Karlsson");
 
     // Knappar
-    JButton roll = new JButton("Kasta");
+    JButton roll = new JButton("Kasta (3)");
     JButton save = new JButton("Spara highscore");
     JButton show = new JButton("Visa highscore");
 
@@ -38,12 +38,18 @@ public class Window extends JFrame {
 
     JToggleButton[] dices = new JToggleButton[5];
 
+    int rolls = 3;
+
     public Window(){
         setUpJFrame();
         setUpPanels();
         setUpScoreBoard();
         setUpDices();
         setUpListeners(); // added here for test purposes
+
+        this.revalidate();
+        this.repaint();
+
     }
 
     public void setUpJFrame(){
@@ -99,8 +105,7 @@ public class Window extends JFrame {
         for(int i = 0; i < 9; i++){
             if(i%2 == 0){
                 Random rand = new Random();
-                int roll = rand.nextInt(6)+1;
-                dices[count] = new JToggleButton(""+roll);
+                dices[count] = new JToggleButton("Orvar Karlsson");
                 dices[count].setOpaque(true);
                 dices[count].setBackground(Color.PINK);
                 dices[count].setBorder(BorderFactory.createLineBorder(Color.WHITE,15));
@@ -118,15 +123,18 @@ public class Window extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Random rand = new Random();
-                for (var dice : dices) {
+                for (int i = 0; i < dices.length; i++) {
                     int x = rand.nextInt(6) + 1;
-                    dice.setText(String.valueOf(x));
+                    dices[i].setText(String.valueOf(x));
                 }
+                rolls--;
+                roll.setText("Kast (" + rolls + ")");
+                if(rolls == 1) rolls = 4;
             }
         };
         roll.addActionListener(rolling);
     }
-    
+
     public static void main(String[] args) {
         new Window();
     }
