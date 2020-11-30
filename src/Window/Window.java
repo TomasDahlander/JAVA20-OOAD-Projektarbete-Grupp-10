@@ -49,7 +49,6 @@ public class Window extends JFrame {
 
         this.revalidate();
         this.repaint();
-
     }
 
     public void setUpJFrame(){
@@ -104,7 +103,6 @@ public class Window extends JFrame {
 
         for(int i = 0; i < 9; i++){
             if(i%2 == 0){
-                Random rand = new Random();
                 dices[count] = new JToggleButton("Orvar Karlsson");
                 dices[count].setOpaque(true);
                 dices[count].setBackground(Color.PINK);
