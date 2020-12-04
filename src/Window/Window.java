@@ -15,7 +15,7 @@ import java.util.Random;
  * Time: 15:08 <br>
  * Project: JAVA20-OOAD-Projektarbete-Grupp-10 <br>
  */
-public class Window extends JFrame {
+public class Window extends JPanel {
 
     // Paneler
     JPanel eastPanel = new JPanel(new BorderLayout());
@@ -41,7 +41,7 @@ public class Window extends JFrame {
     int rolls = 3;
 
     public Window(){
-        setUpJFrame();
+        setUpJPanel();
         setUpPanels();
         setUpScoreBoard();
         setUpDices();
@@ -51,13 +51,9 @@ public class Window extends JFrame {
         this.repaint();
     }
 
-    public void setUpJFrame(){
+    public void setUpJPanel(){
         this.setLayout(new BorderLayout());
         this.setSize(new Dimension(500, 480));
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setVisible(true);
     }
 
     public void setUpPanels(){
@@ -69,7 +65,6 @@ public class Window extends JFrame {
         eastPanel.add(scoreBoard, BorderLayout.CENTER);
         eastPanel.add(tableLabel, BorderLayout.NORTH);
         buttonPanel.add(roll);
-//        buttonPanel.add(save);
         buttonPanel.add(show);
         buttonPanel.setPreferredSize(new Dimension(500,40));
         this.add(buttonPanel,BorderLayout.SOUTH);
@@ -132,9 +127,5 @@ public class Window extends JFrame {
             }
         };
         roll.addActionListener(rolling);
-    }
-
-    public static void main(String[] args) {
-        new Window();
     }
 }
