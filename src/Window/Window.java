@@ -26,7 +26,7 @@ public class Window extends JFrame {
 
     // Knappar
     JButton roll = new JButton("Kasta (3)");
-    JButton save = new JButton("Spara highscore");
+//    JButton save = new JButton("Spara highscore");
     JButton show = new JButton("Visa highscore");
 
     // ScoreBoard
@@ -69,7 +69,7 @@ public class Window extends JFrame {
         eastPanel.add(scoreBoard, BorderLayout.CENTER);
         eastPanel.add(tableLabel, BorderLayout.NORTH);
         buttonPanel.add(roll);
-        buttonPanel.add(save);
+//        buttonPanel.add(save);
         buttonPanel.add(show);
         buttonPanel.setPreferredSize(new Dimension(500,40));
         this.add(buttonPanel,BorderLayout.SOUTH);
@@ -103,9 +103,10 @@ public class Window extends JFrame {
 
         for(int i = 0; i < 9; i++){
             if(i%2 == 0){
-                dices[count] = new JToggleButton("Orvar Karlsson");
+                dices[count] = new JToggleButton("1");
                 dices[count].setOpaque(true);
                 dices[count].setBackground(Color.PINK);
+                dices[count].setFont(new Font("MonoSpaced", Font.BOLD, 100));
                 dices[count].setBorder(BorderFactory.createLineBorder(Color.WHITE,15));
                 dicePanel.add(dices[count]);
                 count++;
