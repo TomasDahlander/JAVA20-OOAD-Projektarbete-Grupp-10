@@ -78,6 +78,14 @@ public abstract class Game {
         this.currentThrow = (this.currentThrow + 1) % THROWS_AMOUNT;
     }
 
+    public void setUpNewGame(){
+        isFirstRound = true;
+        currentScore = 0;
+        currentRound = 0;
+        currentThrow = 0;
+    }
+
+    // Getters
     public int getCurrentThrow() {
         return currentThrow;
     }
@@ -97,4 +105,6 @@ public abstract class Game {
     public String getPlayerName() {
         return playerName;
     }
+
+
 }

@@ -11,6 +11,7 @@ public class YatzyWindow extends JFrame {
     public YatzyWindow(){
         setUpJFrame();
         changePanelTo(startPanel);
+
     }
 
     public void setUpJFrame(){
@@ -29,6 +30,7 @@ public class YatzyWindow extends JFrame {
         mainPanel.repaint();
     }
 
+    // Getters
     public StartPanel getStartPanel() {
         return startPanel;
     }

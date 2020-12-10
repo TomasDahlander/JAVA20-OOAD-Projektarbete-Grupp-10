@@ -38,6 +38,7 @@ public class YatzyPanel extends JPanel {
     }
 
     public void setUpThisJPanel(){
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
         this.setLayout(new BorderLayout());
         this.setPreferredSize(new Dimension(500, 480));
     }
@@ -72,7 +73,7 @@ public class YatzyPanel extends JPanel {
         }
 
         for(int i = 0; i < 8; i++){
-            scoreLabels.add(new JLabel("")); // Just for show. this should be blank
+            scoreLabels.add(new JLabel(""));
             scoreLabels.get(i).setFont(new Font("MonoSpaced", Font.PLAIN, 20));
             scoreLabels.get(i).setBorder(new EtchedBorder());
             scoreLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
@@ -105,6 +106,7 @@ public class YatzyPanel extends JPanel {
         }
     }
 
+    // Getters
     public JButton getRollButton() {
         return rollButton;
     }

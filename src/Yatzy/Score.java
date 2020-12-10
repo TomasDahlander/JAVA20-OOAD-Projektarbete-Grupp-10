@@ -15,6 +15,7 @@ public class Score implements Serializable {
         this.date = LocalDate.now();
     }
 
+    // Getter
     public int getScore() {
         return score;
     }

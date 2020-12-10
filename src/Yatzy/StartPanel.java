@@ -5,10 +5,6 @@ import java.awt.*;
 
 public class StartPanel extends JPanel {
 
-    /*****************************************************************
-     * Färger på alla paneler finns just nu bara så att man lätt ska kunna se skillnad mellan panelers avstånd mm. // TD
-     */
-
     // Backgroundcolor
     private Color color = new Color(184,207,229);
 
@@ -41,7 +37,8 @@ public class StartPanel extends JPanel {
     }
 
     public void setUpThisJPanel(){
-        this.setBackground(color);  // TestFärg
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK,5));
+        this.setBackground(color);
         this.setLayout(new GridLayout(3,1,10,10));
         this.setPreferredSize(new Dimension(500, 480));
     }
@@ -90,6 +87,7 @@ public class StartPanel extends JPanel {
         middlePanel.repaint();
     }
 
+    // Getters
     public JTextField getNameField() {
         return nameField;
     }

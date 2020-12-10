@@ -74,6 +74,7 @@ public class Database {
         }
     }
 
+    // Getter
     public List<Score> getListOfScores() {
         return listOfScores;
     }

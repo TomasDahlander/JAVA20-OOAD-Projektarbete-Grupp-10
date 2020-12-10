@@ -27,9 +27,9 @@ public class Controller {
                 window.getStartPanel().getUnrankedGameButton().setSelected(false);
                 window.getStartPanel().getNameField().setVisible(true);
                 window.getStartPanel().getStartGameButton().setEnabled(true);
-                window.getStartPanel().getRankedGameButton().setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 30));
-                window.getStartPanel().getUnrankedGameButton().setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY,30));
-                window.getStartPanel().setBackground(Color.LIGHT_GRAY);
+                window.getStartPanel().getRankedGameButton().setBorder(BorderFactory.createLineBorder(Color.CYAN, 30));
+                window.getStartPanel().getUnrankedGameButton().setBorder(BorderFactory.createLineBorder(Color.CYAN,30));
+                window.getStartPanel().setBackground(Color.CYAN);
                 window.getStartPanel().getNameLabel().setVisible(true);
                 window.getStartPanel().repaintTextField();
             }
@@ -71,9 +71,11 @@ public class Controller {
     public void setUpRollButtonListener(){
         window.getYatzyPanel().getRollButton().addActionListener(l -> {
             changeButtonStates(true);
-            if(window.getYatzyPanel().getRollButton().getText().equals("Avsluta")){
-                System.exit(0);
+
+            if(window.getYatzyPanel().getRollButton().getText().equals("Spela igen")){
+                setUpNewGame();
             }
+
             Die[] dice = game.rollDice();
             JToggleButton[] toggleButtons = getDiceButtons();
             for (int i = 0; i < dice.length; i++) {
@@ -185,7 +187,14 @@ public class Controller {
             game.database.addScore(new Score(game.getPlayerName(), game.getCurrentScore()));
             game.database.saveData();
         }
+        window.getYatzyPanel().getRollButton().setText("Spela igen");
+    }
 
-        window.getYatzyPanel().getRollButton().setText("Avsluta");
+    public void setUpNewGame(){
+        game.setUpNewGame();
+        for (int i = 0; i < 8; i++){
+            window.getYatzyPanel().getRoundLabels().get(i).setBackground(Color.WHITE);
+            window.getYatzyPanel().getScoreLabels().get(i).setText("");
+        }
     }
 }
