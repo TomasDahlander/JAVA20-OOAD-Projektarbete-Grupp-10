@@ -70,10 +70,6 @@ public abstract class Game {
         else return false;
     }
 
-    public Color getGameColor() {
-        return this.gameColor;
-    }
-
     public void addThrow() {
         this.currentThrow = (this.currentThrow + 1) % THROWS_AMOUNT;
     }
@@ -106,5 +102,7 @@ public abstract class Game {
         return playerName;
     }
 
-
+    public Color getGameColor() {
+        return this.gameColor;
+    }
 }

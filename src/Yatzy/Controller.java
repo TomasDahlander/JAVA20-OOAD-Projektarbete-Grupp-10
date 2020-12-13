@@ -42,6 +42,7 @@ public class Controller {
                         window.getStartPanel().getColor(),30));
                 window.getStartPanel().setBackground(window.getStartPanel().getColor());
                 window.getStartPanel().getStartGameButton().setEnabled(false);
+                window.getStartPanel().getErrorMessage().setVisible(false);
                 window.getStartPanel().repaintTextField();
             }
         });
@@ -54,6 +55,7 @@ public class Controller {
                 window.getStartPanel().getRankedGameButton().setBorder(BorderFactory.createLineBorder(Color.PINK, 30));
                 window.getStartPanel().setBackground(Color.PINK);
                 window.getStartPanel().getStartGameButton().setEnabled(true);
+                window.getStartPanel().getErrorMessage().setVisible(false);
                 window.getStartPanel().repaintTextField();
             }
             else if(!window.getStartPanel().getUnrankedGameButton().isSelected()){
@@ -118,7 +120,9 @@ public class Controller {
                     startRankedGame();
                     game.setPlayerName(name);
                     window.changePanelTo(window.getYatzyPanel());
-                } else System.out.println("Ange namn mellan 1 och 10.");
+                } else{
+                    window.getStartPanel().getErrorMessage().setVisible(true);
+                }
             }
         });
     }

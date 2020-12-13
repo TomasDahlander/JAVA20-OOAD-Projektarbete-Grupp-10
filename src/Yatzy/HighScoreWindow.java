@@ -22,7 +22,7 @@ public class HighScoreWindow extends JFrame {
 
     public void setUpScoreBoardLabel(){
         this.setLayout(new BorderLayout());
-        header.setFont(new Font("MonoSpaced", Font.PLAIN,24));
+        header.setFont(new Font(Font.MONOSPACED, Font.PLAIN,24));
         topPanel.add(header);
         add(topPanel,BorderLayout.NORTH);
     }
@@ -31,7 +31,7 @@ public class HighScoreWindow extends JFrame {
         sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scoreArea.setEditable(false);
         sp.setPreferredSize(new Dimension(280,390));
-        scoreArea.setFont(new Font("MonoSpaced", Font.PLAIN,14));
+        scoreArea.setFont(new Font(Font.MONOSPACED, Font.PLAIN,14));
         add(sp,BorderLayout.CENTER);
     }
 

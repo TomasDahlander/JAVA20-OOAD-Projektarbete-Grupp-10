@@ -23,6 +23,7 @@ public class StartPanel extends JPanel {
 
     // Label
     private JLabel nameLabel = new JLabel("Enter your name: ");
+    private JLabel errorMessage = new JLabel("Namn måste anges med 1-10 tecken");
 
     public StartPanel(){
         setUpThisJPanel();
@@ -30,6 +31,7 @@ public class StartPanel extends JPanel {
         setUpAndAddToggleButtons();
         setUpAndAddLabel();
         setUpAndAddTextfield();
+        setUpAndAddErrorMessageLabel();
         setUpAndAddStartGameButton();
 
         this.revalidate();
@@ -55,7 +57,7 @@ public class StartPanel extends JPanel {
     public void setUpAndAddToggleButtons(){
         rankedGameButton.setOpaque(true);
         rankedGameButton.setBorder(BorderFactory.createLineBorder(color,30));
-        rankedGameButton.setFont(new Font("SansSerif", Font.BOLD,20));
+        rankedGameButton.setFont(new Font(Font.SANS_SERIF, Font.BOLD,20));
         unrankedGameButton.setOpaque(true);
         unrankedGameButton.setBorder(BorderFactory.createLineBorder(color,30));
         unrankedGameButton.setFont(new Font("SansSerif", Font.BOLD,20));
@@ -64,20 +66,28 @@ public class StartPanel extends JPanel {
     }
 
     public void setUpAndAddLabel(){
-        nameLabel.setFont(new Font("SansSerif", Font.BOLD, 25));
+        nameLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 25));
         nameLabel.setVisible(false);
         middlePanel.add(nameLabel, CENTER_ALIGNMENT);
     }
 
     public void setUpAndAddTextfield(){
         nameField.setHorizontalAlignment(SwingConstants.CENTER);
-        nameField.setFont(new Font("SansSerif",Font.ITALIC,25));
+        nameField.setFont(new Font(Font.SANS_SERIF,Font.ITALIC,25));
         nameField.setVisible(false);
         middlePanel.add(nameField, CENTER_ALIGNMENT);
     }
 
+    public void setUpAndAddErrorMessageLabel(){
+        errorMessage.setHorizontalAlignment(SwingConstants.CENTER);
+        errorMessage.setFont(new Font(Font.MONOSPACED,Font.BOLD,14));
+        errorMessage.setForeground(Color.RED);
+        errorMessage.setVisible(false);
+        middlePanel.add(errorMessage, CENTER_ALIGNMENT);
+    }
+
     public void setUpAndAddStartGameButton(){
-        startGameButton.setFont(new Font("SansSerif", Font.BOLD,20));
+        startGameButton.setFont(new Font(Font.SANS_SERIF, Font.BOLD,20));
         startGameButton.setEnabled(false);
         bottomPanel.add(startGameButton);
     }
@@ -110,5 +120,9 @@ public class StartPanel extends JPanel {
 
     public Color getColor() {
         return color;
+    }
+
+    public JLabel getErrorMessage() {
+        return errorMessage;
     }
 }

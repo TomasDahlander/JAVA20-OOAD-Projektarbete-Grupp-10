@@ -66,7 +66,7 @@ public class YatzyPanel extends JPanel {
             roundLabels.get(i).setOpaque(true);
             roundLabels.get(i).setBackground(Color.white);
             roundLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
-            roundLabels.get(i).setFont(new Font("MonoSpaced", Font.BOLD, 18));
+            roundLabels.get(i).setFont(new Font(Font.MONOSPACED, Font.BOLD, 18));
             scoreBoardRounds.add(roundLabels.get(i));
             if (i == 6) roundLabels.get(i).setText("Bonus");
             if (i == 7) roundLabels.get(i).setText("Summa");
@@ -74,7 +74,7 @@ public class YatzyPanel extends JPanel {
 
         for(int i = 0; i < 8; i++){
             scoreLabels.add(new JLabel(""));
-            scoreLabels.get(i).setFont(new Font("MonoSpaced", Font.PLAIN, 20));
+            scoreLabels.get(i).setFont(new Font(Font.MONOSPACED, Font.PLAIN, 20));
             scoreLabels.get(i).setBorder(new EtchedBorder());
             scoreLabels.get(i).setHorizontalAlignment(SwingConstants.CENTER);
             scoreBoardScores.add(scoreLabels.get(i));
@@ -89,7 +89,7 @@ public class YatzyPanel extends JPanel {
                 diceButtons[count] = new JToggleButton("0");
                 diceButtons[count].setOpaque(true);
                 diceButtons[count].setBackground(Color.GREEN);
-                diceButtons[count].setFont(new Font("MonoSpaced", Font.BOLD, 100));
+                diceButtons[count].setFont(new Font(Font.MONOSPACED, Font.BOLD, 100));
                 diceButtons[count].setBorder(BorderFactory.createLineBorder(Color.WHITE,15));
                 dicePanel.add(diceButtons[count]);
                 count++;
