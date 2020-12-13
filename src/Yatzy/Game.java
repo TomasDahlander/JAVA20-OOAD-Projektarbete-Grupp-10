@@ -20,7 +20,7 @@ public abstract class Game {
     private boolean highscoreUp;
 
     public Game(Controller controller) {
-        currentScore = 0;
+        this.currentScore = 0;
         this.controller = controller;
         this.isFirstRound = true;
         this.highscoreUp = false;
