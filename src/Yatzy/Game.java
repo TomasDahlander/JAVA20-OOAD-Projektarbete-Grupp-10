@@ -17,11 +17,13 @@ public abstract class Game {
     private int currentThrow;
     private int currentRound;
     private boolean isFirstRound;
+    private boolean highscoreUp;
 
     public Game(Controller controller) {
         currentScore = 0;
         this.controller = controller;
         this.isFirstRound = true;
+        this.highscoreUp = false;
         createDice();
     }
 
@@ -104,5 +106,13 @@ public abstract class Game {
 
     public Color getGameColor() {
         return this.gameColor;
+    }
+
+    public void setHighscoreUp(boolean state){
+        this.highscoreUp = state;
+    }
+
+    public boolean isHighscoreUp() {
+        return highscoreUp;
     }
 }

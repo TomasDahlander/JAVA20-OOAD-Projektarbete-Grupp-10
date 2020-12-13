@@ -2,6 +2,8 @@ package Yatzy;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Controller {
 
@@ -129,7 +131,18 @@ public class Controller {
 
     public void setUpHighscoreButtonListener(){
         window.getYatzyPanel().getShowScoreButton().addActionListener(l -> {
-            new HighScoreWindow(game.database.getListOfScores());
+            if(!game.isHighscoreUp()) {
+                game.setHighscoreUp(true);
+                HighScoreWindow highScoreWindow = new HighScoreWindow(game.database.getListOfScores());
+
+                highScoreWindow.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        game.setHighscoreUp(false);
+                        e.getWindow().dispose();
+                    }
+                });
+            }
         });
     }
 
