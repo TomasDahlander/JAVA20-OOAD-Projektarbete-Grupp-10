@@ -11,12 +11,15 @@ public class HighScoreWindow extends JFrame {
     private JTextArea scoreArea = new JTextArea();
     private JScrollPane sp = new JScrollPane(scoreArea);
     private List<Score> list;
+    private JPanel bottomPanel = new JPanel();
+    private JButton exportButton = new JButton("Export to word document");
 
     public HighScoreWindow(List<Score> list){
         this.list = list;
         setUpScoreBoardLabel();
         setUpScoreBoard();
         printToScoreboard();
+        setUpExportButton();
         setUpJFrame();
     }
 
@@ -35,6 +38,11 @@ public class HighScoreWindow extends JFrame {
         add(sp,BorderLayout.CENTER);
     }
 
+    public void setUpExportButton(){
+        bottomPanel.add(exportButton, CENTER_ALIGNMENT);
+        add(bottomPanel, BorderLayout.SOUTH);
+    }
+
     public void printToScoreboard(){
         for(int i = 0; i < list.size(); i++){
             String nr = String.format("%-4d",(i+1));
@@ -49,5 +57,10 @@ public class HighScoreWindow extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setVisible(true);
+    }
+
+    // Getter
+    public JButton getExportButton() {
+        return exportButton;
     }
 }

@@ -3,6 +3,7 @@ package Yatzy;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +72,21 @@ public class Database {
                 System.out.println("Could not create file.");
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void exportToWord(){
+        String today = LocalDate.now().toString();
+        try(PrintWriter printer = new PrintWriter(new BufferedWriter(new FileWriter("Yatzyscores " + today + ".doc")))){
+
+            for (int i = 0; i < listOfScores.size(); i++){
+                String nr = String.format("%-4d",(i+1));
+                String line = nr + listOfScores.get(i).toString();
+                printer.println(line);
+            }
+
+        }catch(IOException e){
+            e.printStackTrace();
         }
     }
 

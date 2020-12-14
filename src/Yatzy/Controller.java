@@ -135,6 +135,10 @@ public class Controller {
                 game.setHighscoreUp(true);
                 HighScoreWindow highScoreWindow = new HighScoreWindow(game.database.getListOfScores());
 
+                highScoreWindow.getExportButton().addActionListener(e -> {
+                    game.exportToWord();
+                });
+
                 highScoreWindow.addWindowListener(new WindowAdapter() {
                     @Override
                     public void windowClosing(WindowEvent e) {

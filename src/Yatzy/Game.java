@@ -83,6 +83,10 @@ public abstract class Game {
         currentThrow = 0;
     }
 
+    public void exportToWord(){
+        database.exportToWord();
+    }
+
     // Getters
     public int getCurrentThrow() {
         return currentThrow;
